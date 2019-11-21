@@ -5,6 +5,7 @@ const app = express();
 const geocode = require("./utils/geocode");
 const forcast = require("./utils/forcast");
 
+const port = process.env.PORT || 3000 //for heroku(for local we can se using onst port = process.env.PORT || 3000)
 const publicDirectoryPath = path.join(__dirname, "../public"); // it will set path to that directory
 
 //use handlebar to use dyanamic content
@@ -146,6 +147,12 @@ app.get("*", (req, res) => {
   });
 });
 
-app.listen(3000, () => {
+//this is for local development
+// app.listen(3000, () => {
+//   console.log("server is up!");
+// });
+
+//for heroku
+app.listen(port, () => {
   console.log("server is up!");
 });

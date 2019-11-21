@@ -23,7 +23,7 @@ const forcast = (latitude, longitude, callback) => {
                 callback(undefined,
                     body.hourly.data[0].summary +
                     " " +
-                    body.hourly.data[0].precipProbability
+                    body.hourly.data[0].precipProbability + " temperature will be high today: " + body.daily.data[0].temperatureHigh
                 );
             }
         }
